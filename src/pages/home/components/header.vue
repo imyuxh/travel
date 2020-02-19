@@ -25,6 +25,7 @@
   .city
     width:1.24rem;
     text-align: center;
+    color: #ffffff;
     .arrow
       font-size:.2rem;
 </style>
@@ -38,9 +39,11 @@
         <span class="iconfont">&#xe632;</span>
         请输入城市/景点/游玩主题
       </div>
-      <div class='city'>城市
-        <span class="iconfont arrow">&#xe600;</span>
-      </div>
+      <router-link to='/city'>
+        <div class='city'>城市
+          <span class="iconfont arrow">&#xe600;</span>
+        </div>
+      </router-link>
     </div>
 </template>
 
