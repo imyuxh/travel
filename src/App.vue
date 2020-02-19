@@ -12,4 +12,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+#app{
+  width: 100%;
+  box-sizing:border-box;
+  overflow: hidden;
+}
