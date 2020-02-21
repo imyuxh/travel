@@ -3,35 +3,29 @@
 .list
   display flex
   flex-direction column
-  justify-content center
-  height 100%
   position absolute
   right 0
-  top 1.58rem
+  top 50%
+  transform translateY(-50%)
   width .4rem
   .item
-    line-height .44rem
+    font-size 0.3rem
+    line-height .28rem
     text-align center
     color $bgColor
 </style>
 
 <template>
   <ul class="list">
-    <li class="item">A</li>
-    <li class="item">A</li>
-    <li class="item">A</li>
-    <li class="item">A</li>
-    <li class="item">A</li>
-    <li class="item">A</li>
-    <li class="item">A</li>
-    <li class="item">A</li>
-    <li class="item">A</li>
-    <li class="item">A</li>
+    <li v-for="(item,key) of cities" :key="key" class="item">{{key}}</li>
   </ul>
 </template>
 
 <script>
 export default {
-  name: 'Alphabet'
+  name: 'Alphabet',
+  props: {
+    cities: Object
+  }
 }
 </script>
