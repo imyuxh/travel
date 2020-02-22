@@ -40,7 +40,7 @@
         请输入城市/景点/游玩主题
       </div>
       <router-link to='/city'>
-        <div class='city'>城市
+        <div class='city'>{{this.$store.state.city}}
           <span class="iconfont arrow">&#xe600;</span>
         </div>
       </router-link>

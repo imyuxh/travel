@@ -38,7 +38,7 @@
     </div>
     <div v-show="keyword" class="search-content" ref='search'>
       <ul>
-        <li class="search-item border-bottom" v-for="item of result" :key="item.id">{{item.name}}</li>
+        <li @click="changeCity(item.name)" class="search-item border-bottom" v-for="item of result" :key="item.id">{{item.name}}</li>
       </ul>
       <ul>
         <li class="search-item border-bottom" v-show="noData">暂无匹配结果</li>
@@ -87,6 +87,12 @@ export default {
   },
   mounted () {
     this.scroll = new Bscroll(this.$refs.search)
+  },
+  methods: {
+    changeCity(city) {
+      this.$store.commit('changeCity',city)
+      this.$router.push('/')
+    }
   }
 }
 </script>
