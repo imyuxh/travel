@@ -5,7 +5,7 @@
 <template>
   <div>  
     <city-header></city-header>
-    <Search></Search>
+    <Search :cities='cities'></Search>
     <list :cities='cities' :hotCities='hotCities' :letter="letter"></list>
     <alphabet @change="getAlphabet" :cities='cities'></alphabet>
   </div>
