@@ -17,7 +17,7 @@
 </style>
 
 <template>
-  <ul class="list" :ref="list">
+  <ul class="list">
     <li @click="clickLetter(key)"
      @touchstart="handleTouchStart"
      @touchmove="handleTouchMove"
@@ -38,7 +38,8 @@ export default {
   data () {
     return {
       touch: false,
-      list: 'list'
+      startY:0,
+      timer:null
     }
   },
   computed: {
@@ -50,6 +51,9 @@ export default {
       return letters
     }
   },
+  updated () {
+    this.startY = this.$refs[this.letters[0]][0].offsetTop
+  },
   methods: {
     clickLetter (letter) {
       this.$emit('change', letter)
@@ -59,11 +63,16 @@ export default {
     },
     handleTouchMove (e) {
       if (this.touch) {
-        let startY = this.$refs[this.letters[0]][0].offsetTop
-        let touchY = e.touches[0].clientY
-        let distance = touchY - startY - 79
-        let i = Math.floor(distance / 14)
-        this.$emit('change', this.letters[i])
+        if (this.timer) {
+          clearTimeout(this.timer)
+        }
+        this.timer = setTimeout(() => {
+          let startY = this.startY
+          let touchY = e.touches[0].clientY
+          let distance = touchY - startY - 79
+          let i = Math.floor(distance / 14)
+          this.$emit('change', this.letters[i])
+        },16)
       }
     },
     handleTouchEnd () {
