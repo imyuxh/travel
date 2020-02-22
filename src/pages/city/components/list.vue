@@ -94,7 +94,7 @@ export default {
   methods: {
     changeCity(city) {
       this.$store.commit('changeCity',city)
-      this.$router.push('/')
+      this.$router.replace('/')
     }
   }
 }

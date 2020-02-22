@@ -85,14 +85,16 @@ export default {
       },100)
     }
   },
-  mounted () {
+  activated () {
     this.scroll = new Bscroll(this.$refs.search)
+    this.keyword = ''
+    window.console.log('activated')
   },
   methods: {
     changeCity(city) {
       this.$store.commit('changeCity',city)
-      this.$router.push('/')
+      this.$router.replace('/')
     }
-  }
+  },
 }
 </script>
