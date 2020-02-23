@@ -46,7 +46,7 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="wrapper">
-            <div class="city">{{this.$store.state.city}}</div>
+            <div class="city">{{this.city}}</div>
           </div>
         </div>
       </div>
@@ -72,12 +72,16 @@
 
 <script>
 import Bscroll from 'better-scroll'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'CityList',
   props: {
     hotCities: Array,
     cities: Object,
     letter: String
+  },
+  computed: {
+    ...mapState(['city'])
   },
   watch: {
     letter () {
@@ -92,8 +96,12 @@ export default {
     this.scroll = new Bscroll(this.$refs.wrapper)
   },
   methods: {
+    ...mapMutations({
+      handleChangeCity:'changeCity'
+      }),
     changeCity(city) {
-      this.$store.commit('changeCity',city)
+      this.handleChangeCity(city)
+      // this.$store.commit('changeCity',city)
       this.$router.replace('/')
     }
   }
