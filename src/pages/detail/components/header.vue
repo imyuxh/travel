@@ -15,6 +15,7 @@
     font-size .4rem
     line-height .8rem
 .header-fixed
+  z-index 10
   position fixed
   top 0
   left 0
@@ -65,7 +66,7 @@ export default {
   methods: {
     handleScroll () {
       let top = document.documentElement.scrollTop
-      window.console.log(top)
+      // window.console.log(top)
       if (top > 60) {
         let opacity = top / 140
         opacity = opacity > 1? 1 : opacity
