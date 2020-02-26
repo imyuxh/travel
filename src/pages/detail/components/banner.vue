@@ -42,16 +42,20 @@
         <div class="banner-number"><span class="iconfont banner-icon">&#xe71c;</span>39</div>
       </div>
     </div>
-    <gallary @close="handleClickGallaryClose" v-show="gallaryShow"></gallary>
+    <fade>
+      <gallary @close="handleClickGallaryClose" v-show="gallaryShow"></gallary>
+    </fade>
   </div>
 </template>
 
 <script>
 import gallary from 'common/gallary/gallary'
+import fade from './fadeAnimation.vue'
 export default {
   name: 'DetailBanner',
   components: {
-    gallary
+    gallary,
+    fade
   },
   data () {
     return {

@@ -24,8 +24,8 @@
 </style>
 
 <template>
-  <div class="container">
-    <div @click="handleClose" class="wrapper">
+  <div @click="handleClose" class="container">
+    <div class="wrapper">
       <swiper :options="swiperOption">
         <!-- slides -->
         <swiper-slide v-for="(item,index) of imgs" :key="index">
