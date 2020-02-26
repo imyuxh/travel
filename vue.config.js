@@ -1,5 +1,9 @@
+const path = require('path')
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
 module.exports = {
-  publicPath:  './',
+  publicPath:  '/',
   devServer: {
     proxy: {
       '/api': {
@@ -11,5 +15,9 @@ module.exports = {
         }
       },
     }
+  },
+  chainWebpack: (config) => {
+    config.resolve.alias
+      .set('common', resolve('src/common'),)
   }
 }
